@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Biene\\desktop\\sortingEXAM\\sortingEXAM.csproj": {}
+    "c:\\Users\\Biene\\Desktop\\sortingEXAM\\sortingEXAM.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Biene\\desktop\\sortingEXAM\\sortingEXAM.csproj": {
+    "c:\\Users\\Biene\\Desktop\\sortingEXAM\\sortingEXAM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Biene\\desktop\\sortingEXAM\\sortingEXAM.csproj",
+        "projectUniqueName": "c:\\Users\\Biene\\Desktop\\sortingEXAM\\sortingEXAM.csproj",
         "projectName": "sortingEXAM",
-        "projectPath": "c:\\Users\\Biene\\desktop\\sortingEXAM\\sortingEXAM.csproj",
+        "projectPath": "c:\\Users\\Biene\\Desktop\\sortingEXAM\\sortingEXAM.csproj",
         "packagesPath": "C:\\Users\\Biene\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Biene\\desktop\\sortingEXAM\\obj\\",
+        "outputPath": "c:\\Users\\Biene\\Desktop\\sortingEXAM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Biene\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "sortingEXAM/1.0.0": {
+        "runtime": {
+          "sortingEXAM.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "sortingEXAM/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

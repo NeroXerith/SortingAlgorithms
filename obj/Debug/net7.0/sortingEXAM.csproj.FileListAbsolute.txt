@@ -1,0 +1,14 @@
+C:\Users\Biene\desktop\sortingEXAM\bin\Debug\net7.0\sortingEXAM.exe
+C:\Users\Biene\desktop\sortingEXAM\bin\Debug\net7.0\sortingEXAM.deps.json
+C:\Users\Biene\desktop\sortingEXAM\bin\Debug\net7.0\sortingEXAM.runtimeconfig.json
+C:\Users\Biene\desktop\sortingEXAM\bin\Debug\net7.0\sortingEXAM.dll
+C:\Users\Biene\desktop\sortingEXAM\bin\Debug\net7.0\sortingEXAM.pdb
+C:\Users\Biene\desktop\sortingEXAM\obj\Debug\net7.0\sortingEXAM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Biene\desktop\sortingEXAM\obj\Debug\net7.0\sortingEXAM.AssemblyInfoInputs.cache
+C:\Users\Biene\desktop\sortingEXAM\obj\Debug\net7.0\sortingEXAM.AssemblyInfo.cs
+C:\Users\Biene\desktop\sortingEXAM\obj\Debug\net7.0\sortingEXAM.csproj.CoreCompileInputs.cache
+C:\Users\Biene\desktop\sortingEXAM\obj\Debug\net7.0\sortingEXAM.dll
+C:\Users\Biene\desktop\sortingEXAM\obj\Debug\net7.0\refint\sortingEXAM.dll
+C:\Users\Biene\desktop\sortingEXAM\obj\Debug\net7.0\sortingEXAM.pdb
+C:\Users\Biene\desktop\sortingEXAM\obj\Debug\net7.0\sortingEXAM.genruntimeconfig.cache
+C:\Users\Biene\desktop\sortingEXAM\obj\Debug\net7.0\ref\sortingEXAM.dll
