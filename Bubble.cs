@@ -7,12 +7,14 @@ public class Bubble
 
     public void BubbleSort()
     {
-        int n = GetMaxArraySize();
+        int n = GetMaxArraySize(); // Ask the user for Max input
         numArr = GetUserInput(n);
 
-        int[][] simulations = new int[n * n][]; // Use a normal array to store the simulations
+        bool isAscending = GetSortOrder(); // Ask the user for sorting order
 
-        int[] sortedArr = SortNumbers(simulations);
+        int[][] simulations = new int[n * n][];
+        int[] sortedArr = SortNumbers(simulations, isAscending);
+
         Console.WriteLine("\nUnsorted Data:");
         DisplayNumbersWithCommas(numArr);
 
@@ -79,24 +81,46 @@ public class Bubble
         return arr;
     }
 
-    static int[] SortNumbers(int[][] simulations)
+    static bool GetSortOrder()
+    {
+        while (true)
+        {
+            Console.WriteLine("\n\n|-- High to Low (1) || Low to High (2) --|");
+            Console.Write("Input Number: ");
+            string sortOrder = Console.ReadLine();
+
+            if (sortOrder == "1")
+            {
+                return true; // Ascending order
+            }
+            else if (sortOrder == "2")
+            {
+                return false; // Descending order
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter 1 or 2.");
+            }
+        }
+    }
+
+    static int[] SortNumbers(int[][] simulations, bool isAscending)
     {
         int[] arr = new int[numArr.Length];
         numArr.CopyTo(arr, 0);
 
-        int simulationCounter = 0; // Initialize the simulation counter
+        int simulationCounter = 0;
 
         for (int i = 0; i < arr.Length - 1; i++)
         {
-            // Store the current state of the array in simulations array
             simulations[simulationCounter] = new int[arr.Length];
             arr.CopyTo(simulations[simulationCounter], 0);
 
-            bool swapped = false; // Track if any swaps were made in this pass
+            bool swapped = false;
 
             for (int j = 0; j < arr.Length - i - 1; j++)
             {
-                if (arr[j] > arr[j + 1])
+                if (isAscending ? arr[j] > arr[j + 1] : arr[j] < arr[j + 1])
                 {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
@@ -105,13 +129,12 @@ public class Bubble
                 }
             }
 
-            // If no swaps were made in this pass, the array is already sorted
             if (!swapped)
             {
                 break;
             }
 
-            simulationCounter++; // Increment the simulation counter
+            simulationCounter++;
         }
 
         return arr;
@@ -134,7 +157,7 @@ public class Bubble
 
     static void DisplaySortSimulations(int[][] simulations)
     {
-        int totalSimulations =0;
+        int totalSimulations = 0;
         for (int i = 0; i < simulations.Length; i++)
         {
             if (simulations[i] != null)

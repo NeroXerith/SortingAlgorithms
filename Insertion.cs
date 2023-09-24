@@ -7,12 +7,14 @@ public class Insertion
 
     public void InsertionSort()
     {
-        int n = GetMaxArraySize();
+        int n = GetMaxArraySize(); // Ask the user for Max input
         numArr = GetUserInput(n);
 
-        int[][] simulations = new int[n * n][]; 
+        bool isAscending = GetSortOrder(); // Ask the user for sorting order
 
-        int[] sortedArr = SortNumbers(simulations);
+        int[][] simulations = new int[n * n][];
+        int[] sortedArr = SortNumbers(simulations, isAscending);
+
         Console.WriteLine("\nUnsorted Data:");
         DisplayNumbersWithCommas(numArr);
 
@@ -79,7 +81,30 @@ public class Insertion
         return arr;
     }
 
-    static int[] SortNumbers(int[][] simulations)
+    static bool GetSortOrder()
+    {
+        while (true)
+        {
+            Console.WriteLine("\n\n|-- High to Low (1) || Low to High (2) --|");
+            Console.Write("Input Number: ");
+            string sortOrder = Console.ReadLine();
+
+            if (sortOrder == "1")
+            {
+                return true; // Ascending order
+            }
+            else if (sortOrder == "2")
+            {
+                return false; // Descending order
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter 1 or 2.");
+            }
+        }
+    }
+
+    static int[] SortNumbers(int[][] simulations, bool isAscending)
     {
         int[] arr = new int[numArr.Length];
         numArr.CopyTo(arr, 0);
@@ -95,7 +120,7 @@ public class Insertion
             simulations[simulationCounter] = new int[arr.Length];
             arr.CopyTo(simulations[simulationCounter], 0);
 
-            while (j >= 0 && arr[j] > key)
+            while (j >= 0 && (isAscending ? (arr[j] > key) : (arr[j] < key)))
             {
                 arr[j + 1] = arr[j];
                 j--;
@@ -126,7 +151,7 @@ public class Insertion
 
     static void DisplaySortSimulations(int[][] simulations)
     {
-        int simulationCtr =0;
+        int simulationCtr = 0;
         for (int i = 0; i < simulations.Length; i++)
         {
             if (simulations[i] != null)
