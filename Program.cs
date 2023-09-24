@@ -8,13 +8,19 @@ class Program
     static void Main(string[] args)
     {
         int n = GetMaxArraySize();
-        numArr = GetNumbers(n);
+        numArr = GetUserInput(n);
 
-        int[] sortedArr = SortNumbers();
+        int[][] simulations = new int[n * n][]; // Use a normal array to store the simulations
+
+        int[] sortedArr = SortNumbers(simulations);
         Console.WriteLine("\nUnsorted Data:");
         DisplayNumbersWithCommas(numArr);
+
         Console.WriteLine("\nSorted Data:");
         DisplayNumbersWithCommas(sortedArr);
+
+        Console.WriteLine("\nSort Simulations:");
+        DisplaySortSimulations(simulations);
 
         Console.Read();
     }
@@ -47,7 +53,7 @@ class Program
         return maxInput;
     }
 
-    static int[] GetNumbers(int n)
+    static int[] GetUserInput(int n)
     {
         int[] arr = new int[n];
 
@@ -73,62 +79,21 @@ class Program
         return arr;
     }
 
-    static int[] SortNumbers()
+    static int[] SortNumbers(int[][] simulations)
     {
         int[] arr = new int[numArr.Length];
         numArr.CopyTo(arr, 0);
 
-        while (true)
-        {
-            try
-            {
-                Console.WriteLine("\n\n|-- High to Low (1) || Low to High (2) --|");
-                int option = int.Parse(Console.ReadLine());
+        int simulationCounter = 0; // Initialize the simulation counter
 
-                if (option != 1 && option != 2)
-                {
-                    Console.WriteLine("Invalid option.");
-                    continue;
-                }
-
-                if (option == 1)
-                {
-                    SortHighToLow(arr);
-                }
-                else if (option == 2)
-                {
-                    SortLowToHigh(arr);
-                }
-
-                return arr;
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid option.");
-            }
-        }
-    }
-
-    static void SortHighToLow(int[] arr)
-    {
         for (int i = 0; i < arr.Length - 1; i++)
         {
-            for (int j = 0; j < arr.Length - i - 1; j++)
-            {
-                if (arr[j] < arr[j + 1])
-                {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
-        }
-    }
+            // Store the current state of the array in simulations array
+            simulations[simulationCounter] = new int[arr.Length];
+            arr.CopyTo(simulations[simulationCounter], 0);
 
-    static void SortLowToHigh(int[] arr)
-    {
-        for (int i = 0; i < arr.Length - 1; i++)
-        {
+            bool swapped = false; // Track if any swaps were made in this pass
+
             for (int j = 0; j < arr.Length - i - 1; j++)
             {
                 if (arr[j] > arr[j + 1])
@@ -136,9 +101,20 @@ class Program
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    swapped = true;
                 }
             }
+
+            // If no swaps were made in this pass, the array is already sorted
+            if (!swapped)
+            {
+                break;
+            }
+
+            simulationCounter++; // Increment the simulation counter
         }
+
+        return arr;
     }
 
     static void DisplayNumbersWithCommas(int[] arr)
@@ -154,5 +130,21 @@ class Program
         }
 
         Console.WriteLine();
+    }
+
+    static void DisplaySortSimulations(int[][] simulations)
+    {
+        int totalSimulations =0;
+        for (int i = 0; i < simulations.Length; i++)
+        {
+            if (simulations[i] != null)
+            {
+                Console.Write($"Simulation [{i}]: ");
+                DisplayNumbersWithCommas(simulations[i]);
+                totalSimulations++;
+            }
+        }
+
+        Console.WriteLine($"\nTotal simulations: {totalSimulations}");
     }
 }
