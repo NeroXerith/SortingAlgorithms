@@ -85,7 +85,7 @@ public class Bubble
     {
         while (true)
         {
-            Console.WriteLine("\n\n|-- High to Low (1) || Low to High (2) --|");
+            Console.WriteLine("\n\n|-- Low to High(1) || High to Low (2) --|");
             Console.Write("Input Number: ");
             string sortOrder = Console.ReadLine();
 
