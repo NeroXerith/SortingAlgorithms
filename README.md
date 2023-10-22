@@ -1,7 +1,8 @@
 # SortingAlgorithms
 - Bubble Sort 
 - Insertion Sort 
-- Selection Sort 
+- Selection Sort
+- Merge Sort
 # Requirements
 - C# vscode extension
 - .NET 5.0 framework and above
