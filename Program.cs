@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string[] sortingAlgo = { "Bubble Sort", "Insertion Sort", "Selection Sort" };
+        string[] sortingAlgo = { "Bubble Sort", "Insertion Sort", "Selection Sort", "Merge Sort" };
 
         Console.WriteLine("Choose your Sorting algorithm");
 
@@ -26,8 +26,12 @@ class Program
                 insertionSort.InsertionSort();
                 break;
             case 3:
-                Selection selectionsort = new Selection();
-                selectionsort.SelectionSort();
+                Selection selectionSort = new Selection();
+                selectionSort.SelectionSort();
+                break;
+            case 4:
+                Merge mergeSort = new Merge();
+                mergeSort.MergeSort();
                 break;
             default:
                 Console.WriteLine("Invalid choice.");
@@ -43,7 +47,7 @@ class Program
             {
                 Console.Write("Enter the number of your choice: ");
                 int input = int.Parse(Console.ReadLine());
-                if (input >= 1 && input <= 3)
+                if (input >= 1 && input <= 4)
                 {
                     return input;
                 }
