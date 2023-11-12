@@ -6,10 +6,10 @@ public class Merge
    
     public void MergeSort()
     {
-        int[] initArr = { 4, 6, 3, 8, 2, 1, 10, 7, 5, 9 };
-        dispArr("Initial Array", initArr);
+        int[] numArr = { 4, 6, 3, 8, 2, 1, 10, 7, 5, 9 };
+        dispArr("Initial Array", numArr);
 
-        int[] sortedArr = arrCheck(initArr);
+        int[] sortedArr = arrCheck(numArr);
         dispArr("Sorted Array", sortedArr);
 
         Console.WriteLine("");
@@ -31,13 +31,13 @@ public class Merge
         if (arr.Length > 1){
             int half = arr.Length / 2;
 
-            int[] arrL = arrCutHalf(arr, 0, half, "Left");
-            int[] arrR = arrCutHalf(arr, half, arr.Length, "Right");
+            int[] leftSide = arrCutHalf(arr, 0, half, "Left");
+            int[] rightSide = arrCutHalf(arr, half, arr.Length, "Right");
 
-            arrL = arrCheck(arrL);
-            arrR = arrCheck(arrR);
+            leftSide = arrCheck(leftSide);
+            rightSide = arrCheck(rightSide);
 
-            return arrMerge(arrL, arrR);
+            return arrMerge(leftSide, rightSide);
         }
         else{
             return arr;
@@ -60,42 +60,42 @@ public class Merge
     }
 
     // Merge all arrays
-    static int[] arrMerge(int[] arrL, int[] arrR){
+    static int[] arrMerge(int[] leftSide, int[] rightSide){
         Console.WriteLine("---Merge Sort---");
-        int[] arrMerge = new int[arrL.Length + arrR.Length];
+        int[] arrMerge = new int[leftSide.Length + rightSide.Length];
 
-        int indMerge = 0;
-        int indL = 0;
-        int indR = 0;
+        int indexM = 0;
+        int indexL = 0;
+        int indexR = 0;
 
-        while(indL < arrL.Length & indR < arrR.Length){
-            Console.Write(arrL[indL] + " > " + arrR[indR]);
-            if (arrL[indL] > arrR[indR]){
-                arrMerge[indMerge] = arrR[indR];
-                Console.WriteLine(" : true, insert " + arrR[indR]);
-                indR++;
-                indMerge++;
+        while(indexL < leftSide.Length & indexR < rightSide.Length){
+            Console.Write(leftSide[indexL] + " > " + rightSide[indexR]);
+            if (leftSide[indexL] > rightSide[indexR]){
+                arrMerge[indexM] = rightSide[indexR];
+                Console.WriteLine(" : true, insert " + rightSide[indexR]);
+                indexR++;
+                indexM++;
             }
             else{
-                arrMerge[indMerge] = arrL[indL];
-                Console.WriteLine(" : false, insert " + arrL[indL]);
-                indL++;
-                indMerge++;
+                arrMerge[indexM] = leftSide[indexL];
+                Console.WriteLine(" : false, insert " + leftSide[indexL]);
+                indexL++;
+                indexM++;
             }
         }
 
-        while (indL < arrL.Length){
-            arrMerge[indMerge] = arrL[indL];
-            Console.WriteLine("insert " + arrL[indL]);
-            indL++;
-            indMerge++;
+        while (indexL < leftSide.Length){
+            arrMerge[indexM] = leftSide[indexL];
+            Console.WriteLine("insert " + leftSide[indexL]);
+            indexL++;
+            indexM++;
         }
 
-        while (indR < arrR.Length){
-            arrMerge[indMerge] = arrR[indR];
-            Console.WriteLine("insert " + arrR[indR]);
-            indR++;
-            indMerge++;
+        while (indexR < rightSide.Length){
+            arrMerge[indexM] = rightSide[indexR];
+            Console.WriteLine("insert " + rightSide[indexR]);
+            indexR++;
+            indexM++;
         }
 
         dispArr("arrMerge", arrMerge);
