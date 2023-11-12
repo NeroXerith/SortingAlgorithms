@@ -4,7 +4,7 @@ using System.Globalization;
 public class Heap
 {
     static int lastInd;
-    static void HeapSort()
+    public void HeapSort()
     {
         // User input up to 5 digits (dunno)
         Console.Write("ENTER HOW MANY ITEMS: ");
@@ -96,15 +96,15 @@ public class Heap
             bool hasRChild = false;
             if (parent < lastInd)
             {
-                // Console.WriteLine("P:" + arr[parent]);
+                Console.WriteLine("P:" + arr[parent]);
             }
             if (LChild < lastInd)
             {
-                // Console.WriteLine("LC:" + arr[LChild]);
+                Console.WriteLine("LC:" + arr[LChild]);
             }
             if (RChild < lastInd)
             {
-                // Console.WriteLine("RC:" + arr[RChild]);
+                Console.WriteLine("RC:" + arr[RChild]);
                 hasRChild = true;
             }
             if (hasRChild)
@@ -130,7 +130,7 @@ public class Heap
     // Max Heap
     static int[] maxHeap(int[] arr){
         for (int i = lastInd; i > 1; i--){
-            // Console.WriteLine("checking arr[" + i + "]:" + arr[i-1]);
+            Console.WriteLine("checking arr[" + i + "]:" + arr[i-1]);
             int parent = (i / 2);
             int LChild = (2 * parent);
             int RChild = (2 * parent + 1);
@@ -138,17 +138,15 @@ public class Heap
             LChild--;
             RChild--;
 
-            // Boolean hasLChild = false;
             Boolean hasRChild = false;
             if (parent < lastInd){
-                // Console.WriteLine("P:" + arr[parent]);
+                Console.WriteLine("P:" + arr[parent]);
             }
             if (LChild < lastInd){
-                // Console.WriteLine("LC:" + arr[LChild]);
-                // hasLChild = true;
+                Console.WriteLine("LC:" + arr[LChild]);
             }
             if (RChild < lastInd){
-                // Console.WriteLine("RC:" + arr[RChild]);
+                Console.WriteLine("RC:" + arr[RChild]);
                 hasRChild = true;
             }
             if (hasRChild){
